@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《机器人之梦》- 课程作业站点</title>
+
+  <!-- 特殊字体（中文） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome CDN 图标库 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <section class="intro" id="intro" aria-label="开场动画">
+    <video class="intro-video" id="introVideo" muted playsinline preload="auto">
+      <source src="./assets/video/open.mp4" type="video/mp4">
+    </video>
+    <div class="intro-inner" hidden>
+      <div class="intro-logo" aria-hidden="true"><i class="fa-solid fa-robot"></i></div>
+      <div class="intro-title">机器人之梦</div>
+      <div class="intro-sub">Robot Dreams</div>
+      <button class="intro-skip" id="introSkip" type="button">跳过</button>
+    </div>
+  </section>
+
+  <!-- ========== 顶部导航 ========== -->
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="index.html" aria-label="回到首页">
+          <div class="logo"><i class="fa-solid fa-robot"></i></div>
+          <div>
+            <h1>机器人之梦</h1>
+            <small>Robot Dreams</small>
+          </div>
+        </a>
+
+        <nav aria-label="主导航">
+          <button class="menu-btn" id="menuBtn" type="button" aria-label="打开菜单">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <ul id="navList">
+            <!-- 首页 -->
+            <li><a href="#home"><i class="fa-solid fa-house"></i> 首页</a></li>
+
+            <!-- 故事 -->
+            <li><a href="#story"><i class="fa-solid fa-book-open"></i> 故事</a></li>
+
+            <!-- 角色（二级导航） -->
+            <li class="dropdown" id="charDropdown">
+              <button type="button" aria-label="角色菜单">
+                <i class="fa-solid fa-user-group"></i> 角色
+                <i class="fa-solid fa-chevron-down nav-chevron"></i>
+              </button>
+              <div class="dropdown-menu">
+                <a href="#char-dog"><i class="fa-solid fa-dog"></i> 小狗</a>
+                <a href="#char-robot"><i class="fa-solid fa-robot"></i> 机器人</a>
+                <a href="#char-raccoon"><i class="fa-solid fa-otter"></i> 小浣熊</a>
+                <a href="#char-yellow-robot"><i class="fa-solid fa-gear"></i> 黄色机器人</a>
+              </div>
+            </li>
+
+            <!-- 剧照 -->
+            <li><a href="#stills"><i class="fa-regular fa-image"></i> 剧照</a></li>
+
+            <!-- 艺术赏析（二级导航） -->
+            <li class="dropdown" id="artDropdown">
+              <button type="button" aria-label="艺术赏析菜单">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> 艺术赏析
+                <i class="fa-solid fa-chevron-down nav-chevron"></i>
+              </button>
+              <div class="dropdown-menu">
+                <a href="./analysis/film/film.html"><i class="fa-solid fa-film"></i> 画面艺术赏析</a>
+                <a href="./analysis/film/film.html"><i class="fa-solid fa-music"></i> 音乐艺术分析</a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== Hero 大图区 ========== -->
+  <main id="home" class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-actors" aria-hidden="true">
+      <img class="hero-actor hero-dog" src="./assets/img/dog.png" alt="">
+      <img class="hero-actor hero-robot" src="./assets/img/robot.png" alt="">
+    </div>
+    <div class="container hero-content">
+    </div>
+  </main>
+
+  <div class="hero-divider" aria-hidden="true">
+    <div class="overlay-text">
+      <span class="title-main">在钢铁与温柔之间，做一场梦</span>
+      <span class="title-mask">《机器人之梦》</span>
+    </div>
+  </div>
+
+  <!-- ========== 故事 + 视频 ========== -->
+  <section id="story">
+    <div class="container">
+      <div class="section-title">
+        <h2><i class="fa-solid fa-book-open"></i> 故事简介</h2>
+      </div>
+
+      <div class="two-col">
+        <div class="panel reveal">
+          <h3 class="h3-compact">预告片 / 片段</h3>
+          <div class="video-wrap">
+            <video controls preload="none" poster="./assets/img/video.jpg?v=1">
+              <source src="./assets/video/trailer.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div class="panel reveal">
+          <h3 class="h3-compact">关于这部电影</h3>
+          <p class="p-muted">
+            1984 年的纽约，一只孤独的小狗从电视购物中买来了一个机器人作为朋友。他们一起度过了美好的夏天，却在科尼岛意外分离……
+          </p>
+
+          <!-- 列表 -->
+          <ul class="bullets">
+            <li><strong>关键词：</strong>陪伴 / 孤独 / 分离 / 记忆</li>
+            <li>
+              <strong>推荐理由：</strong>
+              <span>如果你喜欢《疯狂约会美丽都》或《魔术师》这类充满人文气息的动画，或对无需语言却能直击人心的故事感兴趣，《机器人之梦》会是一场触动心灵的体验。它用最简洁的形式，讲述了每个人都可能经历的柔软回忆与生命旅程。</span>
+            </li>
+          </ul>
+
+          <a class="btn btn-mt" href="./analysis/story.html">
+            <i class="fa-solid fa-film"></i> 故事详情(more) <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 角色速览（4 角色卡片） ========== -->
+  <section id="characters">
+    <div class="container">
+      <div class="section-title">
+        <h2><i class="fa-solid fa-user-group"></i> 角色速览</h2>
+      </div>
+
+      <div class="cards">
+        <!-- 小狗 -->
+        <a class="card reveal" id="char-dog" href="#char-dog">
+          <img src="./assets/img/cha1.png" alt="小狗">
+          <div class="card-body">
+            <h3><i class="fa-solid fa-dog"></i> 小狗</h3>
+            <p>故事的主角，孤独却充满爱意，渴望陪伴与友谊。</p>
+            <div class="meta">
+              <span><i class="fa-regular fa-heart"></i> 主角</span>
+              <span>详情 <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 机器人 -->
+        <a class="card reveal" id="char-robot" href="#char-robot">
+          <img src="./assets/img/robot.png" alt="机器人">
+          <div class="card-body">
+            <h3><i class="fa-solid fa-robot"></i> 机器人</h3>
+            <p>小狗购买的伙伴，外表金属却拥有真挚情感。</p>
+            <div class="meta">
+              <span><i class="fa-solid fa-handshake"></i> 挚友</span>
+              <span>详情 <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 小浣熊 -->
+        <a class="card reveal" id="char-raccoon" href="#char-raccoon">
+          <img src="./assets/img/cha3.png" alt="小浣熊">
+          <div class="card-body">
+            <h3><i class="fa-solid fa-otter"></i> 小浣熊</h3>
+            <p>后来出现的新朋友，为机器人带来新的可能。</p>
+            <div class="meta">
+              <span><i class="fa-solid fa-star"></i> 新角色</span>
+              <span>详情 <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 黄色机器人 -->
+        <a class="card reveal" id="char-yellow-robot" href="#char-yellow-robot">
+          <img src="./assets/img/cha4.png" alt="黄色机器人">
+          <div class="card-body">
+            <h3><i class="fa-solid fa-gear"></i> 黄色机器人</h3>
+            <p>小狗后来的新伙伴，象征着生活的继续。</p>
+            <div class="meta">
+              <span><i class="fa-solid fa-rotate"></i> 新开始</span>
+              <span>详情 <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 剧照轮播 ========== -->
+  <section id="stills">
+    <div class="container">
+      <div class="section-title">
+        <h2><i class="fa-regular fa-image"></i> 剧照轮播</h2>
+        <div class="hint"></div>
+      </div>
+
+      <section class="slider panel reveal" aria-label="剧照轮播">
+        <div class="slides" id="slides">
+          <img src="./assets/img/still1.jpg" alt="剧照 1">
+          <img src="./assets/img/still2.jpg" alt="剧照 2">
+          <img src="./assets/img/still3.jpg" alt="剧照 3">
+          <img src="./assets/img/still4.jpg" alt="剧照 4">
+          <img src="./assets/img/still5.png" alt="剧照 5">
+          <img src="./assets/img/still6.jpg" alt="剧照 6">
+        </div>
+
+        <div class="controls">
+          <button class="icon-btn" id="prevBtn" type="button" aria-label="上一张">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="icon-btn" id="nextBtn" type="button" aria-label="下一张">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="dots" id="dots" role="group" aria-label="轮播指示点"></div>
+      </section>
+    </div>
+  </section>
+
+  <!-- ========== 艺术赏析 ========== -->
+  <section id="info">
+    <div class="container">
+      <div class="section-title">
+        <h2><i class="fa-solid fa-wand-magic-sparkles"></i> 艺术赏析</h2>
+      </div>
+
+      <div class="two-col analysis-grid">
+        <a class="panel reveal analysis-card" href="./analysis/film/film.html">
+          <h3 class="analysis-title">画面艺术赏析</h3>
+          <div class="analysis-media" aria-hidden="true">
+            <img class="analysis-img" src="./assets/img/m1.png" alt="">
+          </div>
+          <p class="analysis-desc">电影的视觉风格远不止“好看”，每一个选择都紧密服务于叙事与情感。
+
+简练画风与情感张力：看似稚拙的二维平面风格，实则刻意为之。它降低了技术表现欲，迫使观众将全部注意力集中于角色的表演和情感流动上。这种“无风格”的风格，反而成就了其最大的情感穿透力。</p>
+          <span class="analysis-link">进入赏析 <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+
+        <a class="panel reveal analysis-card" href="./analysis/film/film.html">
+          <h3 class="analysis-title">音乐艺术赏析</h3>
+          <div class="analysis-media" aria-hidden="true">
+            <img class="analysis-img" src="./assets/img/m2.png" alt="">
+          </div>
+          <p class="analysis-desc">歌曲《September》贯穿全片，成为主角情感联结的核心纽带，既是两人相伴时的快乐背景，也是分离后重逢的精神共鸣。不少观众表示“从此听《September》就会落泪”，这首旋律轻快的歌曲被赋予了深刻的情感重量，成为刻在记忆里的专属暗号。</p>
+          <span class="analysis-link">进入赏析 <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 页脚 ========== -->
+  <footer class="footer-glass">
+  <div class="container">
+    <div class="footer-cols">
+      <!-- 联系我们 -->
+      <div class="footer-col">
+        <h4>联系我们</h4>
+        <p>苏紫嫣 3265875742@qq.com</p>
+        <p>万芷阁 20241074108@ucass.edu</p>
+        <p>吴熙 2759794786@qq.com</p>
+      </div>
+
+      <!-- 友情链接 -->
+      <div class="footer-col">
+        <h4>友情链接</h4>
+        <a href="https://movie.douban.com/" target="_blank" rel="noopener">豆瓣</a>
+        <a href="https://www.baidu.com/" target="_blank" rel="noopener">百度</a>
+        <a href="https://weibo.com/" target="_blank" rel="noopener">微博</a>
+      </div>
+
+      <!-- 关于电影 -->
+      <div class="footer-col">
+        <h4>关于电影</h4>
+        <a href="#story">故事</a>
+        <a href="#characters">角色</a>
+        <a href="./analysis/shots.html">电影赏析</a>
+      </div>
+    </div>
+
+    <p class="footer-copy">© 2026 Robot Dreams. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+  <!-- ========== 背景音乐 ========== -->
+  <audio id="bgm" loop preload="none">
+    <source src="./assets/audio/bgm.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- ========== 浮动按钮 ========== -->
+  <div class="floating">
+    <button class="float-btn" id="musicBtn" type="button" aria-label="播放/暂停音乐">
+      <i class="fa-solid fa-music"></i>
+    </button>
+    <button class="float-btn" id="topBtn" type="button" aria-label="返回顶部">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+  </div>
+  <script src="main.js" defer></script>
+</body>
+</html>
