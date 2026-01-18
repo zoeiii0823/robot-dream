@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>机器人之梦 - 故事概述</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: url('https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/a94e09a5a0734f4ba01180dde8f74ec8.jpg~tplv-a9rns2rl98-image.png?lk3s=8e244e95&rcl=2026011717132186F95A5AEE9122652F72&rrcfp=dafada99&x-expires=2084865202&x-signature=C3Je6%2BWgiRQ%2BWdgeqqBUzktUASs%3D') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #fff;
+            padding: 0;
+        }
+        .bg-mask {
+            background-color: rgba(0, 0, 0, 0.6);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 40px;
+        }
+        .main-layout {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+        /* 图片容器（白色边框+浅绿藤条星星装饰） */
+        .image-col {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            padding: 15px;
+            border: 3px solid #ffffff;
+            border-radius: 12px;
+            background-color: rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========== 浅绿细藤条+多颗亮黄色星星 缠绕白色边框 ========== */
+        .vine {
+            position: absolute;
+            background-color: #66BB6A;
+            z-index: 0;
+        }
+        /* 左侧垂直藤条（仅星星） */
+        .vine-left {
+            top: 0;
+            left: -3px;
+            width: 4px;
+            height: 100%;
+        }
+        /* 左侧3颗亮黄色星星 */
+        .vine-left .star-1, .vine-left .star-2, .vine-left .star-3 {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle, #FFEE58 20%, #FFC107 80%);
+            clip-path: polygon(
+                50% 0%,
+                61% 35%,
+                98% 35%,
+                68% 57%,
+                79% 91%,
+                50% 70%,
+                21% 91%,
+                32% 57%,
+                2% 35%,
+                39% 35%
+            );
+            box-shadow: 0 0 8px #FFC107, 0 0 15px #FFEE58;
+            z-index: 1;
+            left: -5px;
+        }
+        .vine-left .star-1 { top: 20%; }
+        .vine-left .star-2 { top: 50%; }
+        .vine-left .star-3 { top: 80%; }
+
+        /* 右侧垂直藤条（仅星星） */
+        .vine-right {
+            top: 0;
+            right: -3px;
+            width: 4px;
+            height: 100%;
+        }
+        /* 右侧3颗亮黄色星星 */
+        .vine-right .star-1, .vine-right .star-2, .vine-right .star-3 {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle, #FFEE58 20%, #FFC107 80%);
+            clip-path: polygon(
+                50% 0%,
+                61% 35%,
+                98% 35%,
+                68% 57%,
+                79% 91%,
+                50% 70%,
+                21% 91%,
+                32% 57%,
+                2% 35%,
+                39% 35%
+            );
+            box-shadow: 0 0 8px #FFC107, 0 0 15px #FFEE58;
+            z-index: 1;
+            right: -5px;
+        }
+        .vine-right .star-1 { top: 15%; }
+        .vine-right .star-2 { top: 45%; }
+        .vine-right .star-3 { top: 75%; }
+
+        /* 顶部水平藤条（仅星星） */
+        .vine-top {
+            top: -3px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+        }
+        /* 顶部3颗亮黄色星星 */
+        .vine-top .star-1, .vine-top .star-2, .vine-top .star-3 {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle, #FFEE58 20%, #FFC107 80%);
+            clip-path: polygon(
+                50% 0%,
+                61% 35%,
+                98% 35%,
+                68% 57%,
+                79% 91%,
+                50% 70%,
+                21% 91%,
+                32% 57%,
+                2% 35%,
+                39% 35%
+            );
+            box-shadow: 0 0 8px #FFC107, 0 0 15px #FFEE58;
+            z-index: 1;
+            top: -5px;
+        }
+        .vine-top .star-1 { left: 20%; }
+        .vine-top .star-2 { left: 50%; }
+        .vine-top .star-3 { left: 80%; }
+
+        /* 底部水平藤条（仅星星） */
+        .vine-bottom {
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+        }
+        /* 底部3颗亮黄色星星 */
+        .vine-bottom .star-1, .vine-bottom .star-2, .vine-bottom .star-3 {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle, #FFEE58 20%, #FFC107 80%);
+            clip-path: polygon(
+                50% 0%,
+                61% 35%,
+                98% 35%,
+                68% 57%,
+                79% 91%,
+                50% 70%,
+                21% 91%,
+                32% 57%,
+                2% 35%,
+                39% 35%
+            );
+            box-shadow: 0 0 8px #FFC107, 0 0 15px #FFEE58;
+            z-index: 1;
+            bottom: -5px;
+        }
+        .vine-bottom .star-1 { left: 10%; }
+        .vine-bottom .star-2 { left: 40%; }
+        .vine-bottom .star-3 { left: 70%; }
+
+        /* 角落缠绕节点（同步调浅绿色） */
+        .vine-corner {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #66BB6A;
+            border-radius: 50%;
+            z-index: 0;
+        }
+        .vine-corner-tl { top: -5px; left: -5px; }
+        .vine-corner-tr { top: -5px; right: -5px; }
+        .vine-corner-bl { bottom: -5px; left: -5px; }
+        .vine-corner-br { bottom: -5px; right: -5px; }
+
+        /* 单个图片容器（无边框） */
+        .img-wrapper {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.7);
+            overflow: hidden;
+            border: none;
+            position: relative;
+        }
+        .img1-wrapper { height: 186px; }
+        .img-middle-wrapper { height: 186px; }
+        .img2-wrapper { height: 240px; }
+        .story-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .text-col {
+            flex: 1;
+            font-family: "SimHei", "黑体", sans-serif;
+            position: relative;
+            /* 文本区域整体右移，与虚线保持间距 */
+            padding-left: 30px;
+        }
+        /* ========== 与小标题文本框最左侧精准对齐的虚线 ========== */
+        .title-connector {
+            position: absolute;
+            /* 虚线精准对齐小标题文本框最左侧 */
+            left: 10px;
+            top: 10px;
+            width: 2px;
+            height: calc(100% - 20px - 60px);
+            background-image: linear-gradient(to bottom, #FFB300 50%, transparent 50%);
+            background-size: 2px 10px;
+            z-index: 1;
+        }
+        /* 大标题：字体保持不变 */
+        h1 {
+            font-size: 56px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #FFB300;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.9);
+            letter-spacing: 8px;
+            font-weight: 600;
+            font-family: "Source Han Soft Black SC", "思源柔黑", "PingFang SC", "苹方", "Microsoft JhengHei", "微软正黑体", sans-serif;
+        }
+        /* 每个section容器 */
+        .section { 
+            margin: 0 0 60px 0; 
+            position: relative;
+            z-index: 2;
+        }
+        /* 小标题：更换为楷体（与大标题/正文不重复，质感更优） */
+        .section-title {
+            font-size: 26px;
+            color: #ffffff;
+            background-color: #FFD54F;
+            padding: 10px 18px;
+            border-radius: 5px;
+            letter-spacing: 2px;
+            display: inline-block;
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-weight: bold;
+            /* 小标题文本框左端与虚线(10px)精准对齐 */
+            position: relative;
+            left: -20px;
+            margin-bottom: 15px;
+            font-family: "KaiTi", "楷体", serif;
+        }
+        /* 正文：保持宋体（与其他字体不重复） */
+        .section p {
+            font-size: 19px;
+            line-height: 2;
+            color: #ffffff;
+            text-indent: 2em;
+            text-shadow: 1px 1px 3px rgba(0,0,0,1);
+            font-family: "SimSun", "宋体", serif;
+            /* 正文与虚线保持足够间距 */
+            margin-left: 0;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 992px) {
+            .main-layout { flex-direction: column; }
+            .image-col {
+                width: 100%;
+                gap: 20px;
+                padding: 12px;
+            }
+            .vine { width: 3px; height: 3px; }
+            .vine .star-1, .vine .star-2, .vine .star-3 {
+                width: 10px;
+                height: 10px;
+                box-shadow: 0 0 6px #FFC107, 0 0 12px #FFEE58;
+            }
+            .img1-wrapper, .img-middle-wrapper, .img2-wrapper { height: auto !important; }
+            .title-connector {
+                left: 8px;
+                top: 8px;
+                height: calc(100% - 16px - 50px);
+                background-size: 2px 8px;
+            }
+            .text-col { padding-left: 25px; }
+            .section-title { 
+                left: -17px;
+                font-size: 24px; 
+                padding: 8px 16px; 
+                font-family: "KaiTi", "楷体", serif;
+            }
+            .section { margin: 0 0 50px 0; }
+            .section p { 
+                font-size: 18px; 
+                font-family: "SimSun", "宋体", serif;
+            }
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 40px; letter-spacing: 5px; }
+            .container { padding: 30px 20px; }
+            .title-connector {
+                left: 6px;
+                top: 6px;
+                height: calc(100% - 12px - 45px);
+                background-size: 2px 8px;
+            }
+            .text-col { padding-left: 20px; }
+            .section-title { 
+                left: -14px;
+                font-size: 22px; 
+                padding: 8px 14px; 
+                font-family: "SimSun", "宋体", serif;
+            }
+            .section p { 
+                font-size: 17px; 
+                line-height: 1.9; 
+                font-family: "SimSun", "宋体", serif;
+            }
+        }
+        @media (max-width: 480px) {
+            h1 { font-size: 32px; }
+            .bg-mask { padding: 20px 10px; }
+            .image-col { padding: 10px; border-width: 2px; }
+            .vine { width: 2px; height: 2px; }
+            .vine .star-1, .vine .star-2, .vine .star-3 {
+                width: 8px;
+                height: 8px;
+                box-shadow: 0 0 5px #FFC107, 0 0 10px #FFEE58;
+            }
+            .title-connector {
+                left: 5px;
+                top: 5px;
+                height: calc(100% - 10px - 40px);
+                background-size: 2px 6px;
+            }
+            .text-col { padding-left: 18px; }
+            .section { margin: 0 0 40px 0; }
+            .section-title { 
+                left: -13px;
+                font-size: 20px; 
+                padding: 6px 12px; 
+                font-family: "KaiTi", "楷体", serif;
+            }
+            .section p { 
+                font-size: 16px; 
+                line-height: 1.8; 
+                text-indent: 1.5em; 
+                font-family: "SimSun", "宋体", serif;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-mask">
+        <div class="container">
+            <h1>故事概述</h1>
+
+            <div class="main-layout">
+                <div class="image-col">
+                    <!-- 浅绿细藤条+12颗亮黄色星星 缠绕白色边框 -->
+                    <div class="vine vine-left">
+                        <span class="star-1"></span>
+                        <span class="star-2"></span>
+                        <span class="star-3"></span>
+                    </div>
+                    <div class="vine vine-right">
+                        <span class="star-1"></span>
+                        <span class="star-2"></span>
+                        <span class="star-3"></span>
+                    </div>
+                    <div class="vine vine-top">
+                        <span class="star-1"></span>
+                        <span class="star-2"></span>
+                        <span class="star-3"></span>
+                    </div>
+                    <div class="vine vine-bottom">
+                        <span class="star-1"></span>
+                        <span class="star-2"></span>
+                        <span class="star-3"></span>
+                    </div>
+                    <div class="vine-corner vine-corner-tl"></div>
+                    <div class="vine-corner vine-corner-tr"></div>
+                    <div class="vine-corner vine-corner-bl"></div>
+                    <div class="vine-corner vine-corner-br"></div>
+
+                    <!-- 单张照片无任何边框 -->
+                    <div class="img-wrapper img1-wrapper">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/89421a010b5543c694216b62fe5a1244.jpg~tplv-a9rns2rl98-image.png?lk3s=8e244e95&rcl=20260117173526A8D7EF0B53355249C2DA&rrcfp=dafada99&x-expires=2084866526&x-signature=6dQmt8ljb3bcbgqPZop%2FIuAiNKU%3D" alt="孤独与相遇-意外与分离" class="story-img">
+                    </div>
+                    <div class="img-wrapper img-middle-wrapper">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/a4c8e061b37045928bfce7152adbfa0d.jpg~tplv-a9rns2rl98-image.png?lk3s=8e244e95&rcl=2026011717480359D91AD3028E174C111C&rrcfp=dafada99&x-expires=2084867284&x-signature=H8YVsytS7yOgn6EwIAPyRH%2BVKEI%3D" alt="中间故事图" class="story-img">
+                    </div>
+                    <div class="img-wrapper img2-wrapper">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/93495f1d7ecf4759a80a1aa674decc04.jpg~tplv-a9rns2rl98-image.png?lk3s=8e244e95&rcl=20260117173526A8D7EF0B53355249C2DA&rrcfp=dafada99&x-expires=2084866526&x-signature=ONm4PGOW%2FRS9dUb%2ByCzObU2CX9c%3D" alt="等待与漂泊-释怀与前行" class="story-img">
+                    </div>
+                </div>
+                <div class="text-col">
+                    <!-- 与小标题文本框最左侧对齐的虚线 -->
+                    <div class="title-connector"></div>
+
+                    <div class="section">
+                        <div class="section-title">1、孤独与相遇</div>
+                        <p>生活在纽约的小狗感到孤独，它通过邮购得到一个机器人组装套件。两人迅速成为形影不离的挚友，在城市中共享无数快乐时光。</p>
+                    </div>
+                    <div class="section">
+                        <div class="section-title">2、意外与分离</div>
+                        <p>在一次海滩游玩中，机器人不慎入水并严重锈蚀，动弹不得。小狗无法移动它，被迫独自离开。两人就此失散。</p>
+                    </div>
+                    <div class="section">
+                        <div class="section-title">3、等待与漂泊</div>
+                        <p>随后的岁月里，小狗尝试结交新朋友、开始新生活，却总在怀念旧日时光。机器人则在海滩上经历了被拾起又抛弃、被当作垃圾处理的种种际遇，但始终希望回到小狗身边。</p>
+                    </div>
+                    <div class="section">
+                        <div class="section-title">4、释怀与前行</div>
+                        <p>多年以后，小狗在旧物中发现机器人的组装手册，而机器人则在梦境中反复重温共舞的快乐。他们最终没有重逢，但各自都带着这份记忆的馈赠，继续平静地走向属于自己的生活。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

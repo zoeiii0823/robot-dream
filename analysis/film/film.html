@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>音乐艺术分析 - 机器人之梦</title>
+
+  <!-- 字体 & 图标（保持与首页一致） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="../../style.css">
+
+  <!-- 子页样式 -->
+  <link rel="stylesheet" href="film.css">
+</head>
+<body class="film-body">
+
+  <!-- 导航栏：保持和 index 一致结构 -->
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="../../index.html">
+          <div class="logo"><i class="fa-solid fa-robot"></i></div>
+          <div>
+            <h1>机器人之梦</h1>
+            <small>Robot Dreams</small>
+          </div>
+        </a>
+
+        <nav>
+          <button class="menu-btn" id="menuBtn" type="button" aria-label="打开菜单">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <ul id="navList">
+            <li><a href="../../index.html#home">首页</a></li>
+            <li><a href="../../index.html#story">故事</a></li>
+            <li><a href="../../index.html#characters">角色</a></li>
+            <li class="dropdown">
+              <button type="button">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> 艺术赏析
+                <i class="fa-solid fa-chevron-down nav-chevron"></i>
+              </button>
+              <div class="dropdown-menu">
+                <a href="../shots.html"><i class="fa-solid fa-film"></i> 镜头语言分析</a>
+                <a href="./film.html" class="active"><i class="fa-solid fa-music"></i> 音乐艺术分析</a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+
+      </div>
+    </div>
+  </header>
+
+  <main class="film-page">
+
+    <!-- ==================== 上半部分：图二结构 ==================== -->
+    <section class="section-top">
+      <div class="container top-layout">
+
+        <!-- 左：3张竖图 -->
+        <div class="card-strip" role="group" aria-label="镜头组图">
+          <div class="shot shot-1">
+            <img src="../../assets/img/f1.png" alt="镜头图 1">
+          </div>
+          <div class="shot shot-2">
+            <img src="../../assets/img/f2.png" alt="镜头图 2">
+          </div>
+          <div class="shot shot-3">
+            <img src="../../assets/img/f3.png" alt="镜头图 3">
+          </div>
+        </div>
+
+        <!-- 右：文本框 -->
+        <div class="text-panel">
+          <h3>视觉特点</h3>
+          <table class="feature-table" aria-label="视觉特点与简要概括">
+            <thead>
+              <tr>
+                <th scope="col">视觉特点</th>
+                <th scope="col">简要概括</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>平面化与简练风格</td>
+                <td>采用二维平面、线条简练的复古画风，突出角色表演和情感流动。</td>
+              </tr>
+              <tr>
+                <td>城市作为“角色”</td>
+                <td>细致还原 80 年代纽约，场景充满生活细节，城市本身成为有生命力的叙事舞台。</td>
+              </tr>
+              <tr>
+                <td>色彩与光线表意</td>
+                <td>色彩和光线随季节与角色心境变化，从孤独的灰暗到相遇的明媚，外化情感起伏。</td>
+              </tr>
+              <tr>
+                <td>无对白表演叙事</td>
+                <td>完全依靠精准的肢体语言和面部表情传递复杂情绪，是视觉叙事的核心。</td>
+              </tr>
+              <tr>
+                <td>超现实梦境视觉化</td>
+                <td>将机器人的思念与潜意识通过奇幻、变化的梦境场景呈现，拓展叙事空间。</td>
+              </tr>
+              <tr>
+                <td>蒙太奇剪辑</td>
+                <td>运用平行剪辑连接分离的小狗与机器人，强化情感同步与命运隔阂。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 下半部分：图三结构 ==================== -->
+    <section class="section-bottom">
+      <div class="container bottom-layout">
+        <!-- 左：唱片 -->
+        <div class="vinyl-panel">
+          <div class="vinyl-wrap">
+            <div class="vinyl" id="vinyl"></div>
+            <img class="vinyl-decor" src="../../assets/img/f4.png" alt="" aria-hidden="true">
+          </div>
+        </div>
+
+        <!-- 右：文本 -->
+        <div class="info-panel">
+          <h2>音乐艺术赏析</h2>
+          <div class="music-table-wrap">
+            <table class="music-table" aria-label="音乐赏析要点">
+              <thead>
+                <tr>
+                  <th scope="col">点位</th>
+                  <th scope="col">内容摘要</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>核心配乐</td>
+                  <td>《September》贯穿全片，成为情感纽带与专属暗号。</td>
+                </tr>
+                <tr>
+                  <td>高潮场景</td>
+                  <td>纽约街头隔空共舞，旋律推动“思念与释怀”的顶点。</td>
+                </tr>
+                <tr>
+                  <td>叙事功能</td>
+                  <td>无对白靠音乐承载情绪与情节，完成共情与沉浸。</td>
+                </tr>
+                <tr>
+                  <td>细节巧思</td>
+                  <td>风格多样贴合剧情，《康定情歌》强化文化融合与层次感。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="info-actions">
+            <button class="play-btn" id="playBtn" type="button" aria-label="播放/暂停">
+              <i class="fa-solid fa-play" id="playIcon"></i>
+            </button>
+            <button class="song-btn" id="prevBtn" type="button" aria-label="上一首">
+              <i class="fa-solid fa-backward-step"></i>
+            </button>
+            <button class="circle-btn" id="playbarBtn" type="button">播放按钮</button>
+            <button class="song-btn" id="nextBtn" type="button" aria-label="下一首">
+              <i class="fa-solid fa-forward-step"></i>
+            </button>
+            <span class="song-label" id="songLabel" aria-live="polite"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 背景音乐（可替换） -->
+  <audio id="bgm" loop preload="none"></audio>
+
+  <script src="../../main.js" defer></script>
+  <script src="film.js"></script>
+</body>
+</html>
